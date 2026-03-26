@@ -112,7 +112,7 @@ class SlideTransitionPage extends Page<void> {
       transitionsBuilder: (context, animation, secondaryAnimation, child) =>
           SlideTransition(
             position: Tween<Offset>(
-              begin: const Offset(-1, 0),
+              begin: const Offset(1, 0),
               end: Offset.zero,
             ).animate(animation),
             child: child,

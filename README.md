@@ -8,7 +8,7 @@ Flutter demo app implementing a simple **Send Money** flow with:
 - **Transaction History**
 
 Tech:
-- **Flutter**
+- **Flutter v3.38.8**
 - **Clean Architecture** (data, domain, presentation)
 - **Bloc** (`flutter_bloc`) + `bloc_presentation` for one-off UI events
 - **Dio** for API calls

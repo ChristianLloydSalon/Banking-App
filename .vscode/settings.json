@@ -1,0 +1,14 @@
+{
+  "dart.flutterSdkPath": ".fvm/versions/3.38.8",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "[dart]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "dart.enableSdkFormatter": true,
+  "dart.previewFlutterUiGuides": true
+}

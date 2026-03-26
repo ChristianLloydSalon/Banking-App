@@ -9,7 +9,6 @@ class WalletRepositoryImpl implements WalletRepository {
 
   @override
   Future<Wallet> fetchWallet() async {
-    final walletModel = await remoteSource.fetchWallet();
-    return walletModel.toEntity();
+    return await remoteSource.fetchWallet();
   }
 }

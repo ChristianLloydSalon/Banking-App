@@ -21,15 +21,4 @@ class UserModel extends User {
       website: json.parseString('website'),
     );
   }
-
-  User toEntity() {
-    return User(
-      id: id,
-      name: name,
-      username: username,
-      email: email,
-      phone: phone,
-      website: website,
-    );
-  }
 }

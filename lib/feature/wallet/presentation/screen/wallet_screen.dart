@@ -7,6 +7,7 @@ import '../../../../shared/component/action/app_button.dart';
 import '../../../../shared/component/containment/app_container.dart';
 import '../../data/di/wallet_service_locator.dart';
 import '../bloc/wallet_bloc.dart';
+import '../component/wallet_header.dart';
 
 class WalletScreen extends StatelessWidget {
   const WalletScreen({super.key});
@@ -20,11 +21,9 @@ class WalletScreen extends StatelessWidget {
       create: (context) =>
           WalletBloc(fetchWalletUsecase: fetchWalletUsecase)
             ..add(WalletRequested()),
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: context.colors.backgroundPrimary,
-          body: _WalletScreenContent(),
-        ),
+      child: Scaffold(
+        backgroundColor: context.colors.backgroundPrimary,
+        body: SafeArea(child: _WalletScreenContent()),
       ),
     );
   }
@@ -45,17 +44,7 @@ class _WalletScreenContent extends StatelessWidget {
           return CustomScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
             slivers: [
-              SliverAppBar(
-                backgroundColor: context.colors.backgroundPrimary,
-                title: Text(
-                  'Wallet',
-                  style: context.textStyles.outfit.title2xlMedium.copyWith(
-                    color: context.colors.brandPrimary,
-                  ),
-                ),
-                foregroundColor: context.colors.textPrimary,
-                pinned: true,
-              ),
+              SliverFloatingHeader(child: WalletHeader()),
               SliverPadding(
                 padding: EdgeInsets.all(context.spacing.spacing.base),
                 sliver: switch (state.status) {
@@ -64,9 +53,8 @@ class _WalletScreenContent extends StatelessWidget {
                       child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 520),
                         child: _WalletErrorState(
-                          onRetry: () => context
-                              .read<WalletBloc>()
-                              .add(WalletRequested()),
+                          onRetry: () =>
+                              context.read<WalletBloc>().add(WalletRequested()),
                         ),
                       ),
                     ),

@@ -12,12 +12,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required String username,
     required String password,
   }) async {
-    final userModel = await remoteSource.login(
-      username: username,
-      password: password,
-    );
-
-    return userModel.toEntity();
+    return await remoteSource.login(username: username, password: password);
   }
 
   @override
